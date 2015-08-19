@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<title>This Kills the Crab</title>
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -92,6 +94,7 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.id);
+      document.getElementById('name').innerHTML = response.name;
       document.getElementById('status').innerHTML = 'To use photo, right click &amp; select \'Save as Source\'.';
 
         FB.api(
@@ -124,7 +127,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1>This Kills The [ ]</h1>
+      <h1>This Kills The [ <span id="name"></span> ]</h1>
       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
       </fb:login-button>
       <p id="status">For Enjoy, please login</p>
@@ -138,6 +141,7 @@
         Your browser does not support the HTML5 canvas tag.
       </canvas>
       </div>
+      <p class="text-center visible-xs-block">May not work well on your phone...</p>
     </div>
   </div>
 
